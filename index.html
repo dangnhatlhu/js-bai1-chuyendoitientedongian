@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chuyển đổi USD sang VND</title>
+</head>
+<body>
+  <h1>Chuyển đổi USD sang VND</h1>
+  <p>Mở Developer Tools (F12) và chọn tab Console để xem kết quả.</p>
+
+  <script>
+    const exchangeRate = 25000;
+    const input = prompt("Nhập số tiền USD cần chuyển đổi:");
+
+    if (input === null) {
+      console.log("Bạn đã hủy thao tác chuyển đổi.");
+    } else {
+      const usd = Number(input);
+
+      if (input.trim() === "" || !Number.isFinite(usd) || usd < 0) {
+        console.log("Vui lòng nhập một số USD hợp lệ, lớn hơn hoặc bằng 0.");
+      } else {
+        const vnd = usd * exchangeRate;
+        console.log(`${usd} USD = ${vnd.toLocaleString("vi-VN")} VND`);
+      }
+    }
+  </script>
+</body>
+</html>
